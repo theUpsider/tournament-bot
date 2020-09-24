@@ -7,7 +7,7 @@ module.exports =
     name: 'ticket',
     description: 'Creates a ticket',
     cooldown: 1,
-    aliases: ['bal', 'money'],
+    aliases: ['support'],
     execute(message, args) {
 
         const exampleEmbed = new discord.MessageEmbed()

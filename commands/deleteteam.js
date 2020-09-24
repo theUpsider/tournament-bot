@@ -13,6 +13,7 @@ module.exports =
     args: true,
     usage: "<teamname>",
     guildOnly: true,
+    aliases: ['removeteam'],
     async execute(message, args) {
         //db1
         // Key: teamname, Value: Teamleader (Summonername)

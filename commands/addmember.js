@@ -2,11 +2,11 @@ const Keyv = require('keyv');
 const settings = require('../general-settings.json')
 
 module.exports = {
-    name: "setteamcolor",
-    usage: "<hex-color with hashtag>",
+    name: "addmember",
+    usage: "<discord ID>",
     args: true,
     guildOnly: true,
-    aliases: ['setcolorteam'],
+    aliases: ['addteammember'],
     async execute(message, args) {
         //db1
         // Key: teamname, Value: Teamleader (Summonername)
@@ -23,12 +23,9 @@ module.exports = {
 
         } else if ((captainID == message.author.id) || message.member.roles.cache.has(settings.staffrole)) {
 
-            //if wrong hex code return
-            if (args[0].startsWith("#") && args[0].length == 7)
-            (await message.guild.roles.fetch(role.id)).setColor(args[0])
-            else
-                return message.reply('Color not valid. Try this format: #123456.')
+            const memberToAdd = await message.guild.members.cache.find(member => member.id == args[0]).fetch();
+            memberToAdd.roles.add(role.id)
         }
-        return message.reply('Color assigned.')
+        return message.reply('Member assigned.')
     }
 }
