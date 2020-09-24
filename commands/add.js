@@ -1,16 +1,19 @@
+const settings = require('../general-settings.json')
 const discord = require("discord.js");
 
 module.exports =
 {
     name: 'add',
-    description: 'add',
-    cooldown: 1,
-    aliases: ['bal', 'money'],
-    async execute(bot, message, args) {
+    description: 'add user to a ticket',
+    args: true,
+    usage: '<ID>',
+    guildOnly: true,
+    async execute(message, args) {
 
-        if (!message.member.roles.cache.has(bot.config.staffrole)) return message.reply(`:x: You do not have permission to execute this command.`)
+        if (!message.member.roles.cache.has(settings.staffrole)) return message.reply(`:x: You do not have permission to execute this command.`)
 
-        if (args[0] !== message.guild.members.cache.get(args[0])) return message.channel.send(`:x: Incorrect user ID.`)
+        //if (args[0] !== message.guild.members.cache.get(args[0])) return message.channel.send(`:x: Incorrect user ID.`)
+        if (! message.guild.member(args[0])) return message.channel.send(`:x: Incorrect user ID (use the numbers not the username).`)
 
         else {
             message.channel.updateOverwrite(args[0], { VIEW_CHANNEL: true });
@@ -20,9 +23,4 @@ module.exports =
         }
 
     }
-}
-
-module.exports.help = {
-    name: "add",
-    description: "Sluit een ticket.",
 }
