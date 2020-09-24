@@ -4,6 +4,7 @@ const fetch = require('node-fetch');
 const Keyv = require('keyv');
 const sqlite3 = require('sqlite3').verbose();
 const { prefix, token } = require('./config.json');
+const settings = require('./general-settings.json')
 const fs = require('fs');
 
 const globalPrefix = '..';
@@ -26,13 +27,12 @@ let db = new sqlite3.Database(':memory:', (err) => {
 	}
 	console.log('Connected to the in-memory SQlite database.');
 });
-const dbmoney = new Keyv('sqlite://money.sqlite'); // const keyv = new Keyv(); // for in-memory storage //
-
-dbmoney.on('error', err => console.error('Keyv connection error:', err));
-
-const dbjob = new Keyv('sqlite://job.sqlite');
-
-dbjob.on('error', err => console.error('Keyv connection error:', err));
+//db1
+const dbsupportchannel = new Keyv('sqlite://supportchannel.sqlite'); // const keyv = new Keyv(); // for in-memory storage //
+dbsupportchannel.on('error', err => console.error('Keyv connection error:', err));
+//db2
+// const dbjob = new Keyv('sqlite://job.sqlite');
+// dbjob.on('error', err => console.error('Keyv connection error:', err));
 
 bot.login(token);
 
@@ -107,6 +107,21 @@ bot.on('message', async message => {
 		message.reply('there was an error trying to execute that command!');
 	}
 });
+
+	// ----------------------------------------------------------------------------------------------------------------------------------------------
+	// User Join
+	// ----------------------------------------------------------------------------------------------------------------------------------------------
+bot.on('guildMemberAdd', member => {
+	const embeded = new Discord.MessageEmbed()
+	.setColor(settings.colors.blue)
+	.setTitle(`A new user has joined`)
+	.setDescription(`Welcome **`+member.user.username+`** to the tournament server! Before doing anything else read <#${settings.channels.information}> and <#${settings.channels.rules}>. Any further questions should be directed towards our staff. Enjoy your stay!`)
+	.setFooter(settings.footer);
+
+    member.guild.channels.resolve(settings.channels.greetings).send(embeded);
+});
+
+
 
 // extended functionality
 // ------------------------

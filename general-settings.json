@@ -2,5 +2,13 @@
    "color":"#FFFFF",
    "footer": "test footer",
    "staffrole": "758677885618749480",
-   "ticketcat": "758677995589468190"
+   "ticketcat": "758677995589468190",
+   "channels":{
+      "greetings":"758690616405131325",
+      "rules":"758690639189377034",
+      "information":"758690664682225664"
+   },
+   "colors":{
+      "blue":"#4200ff"
+   }
 }

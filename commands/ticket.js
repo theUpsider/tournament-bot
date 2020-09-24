@@ -55,7 +55,7 @@ module.exports =
                                     let embed = new discord.MessageEmbed()
                                         .setTitle(`Support ticket`)
                                         .setColor(settings.color)
-                                        .setDescription(`Hello, please tell us more about your issue/question and our support team will respond as fast as possible.`)
+                                        .setDescription(`Hello there **`+message.author.username +`**, tell us about your issue and one of our staff members will respond as quick as possible. And also if you have any questions feel free to ask it in here.`)
                                         .setFooter(settings.footer)
                                     channel.send(embed)
                                 }
@@ -84,7 +84,7 @@ module.exports =
                                     let embed4 = new discord.MessageEmbed()
                                         .setTitle(`Application`)
                                         .setColor(settings.color)
-                                        .setDescription(`Hello, if you want to apply for marketing click [here](https://forms.gle/Xehxo8vkjTkdz64i6)\nIf you want to apply for General support or higher, click [here](https://forms.gle/fUyqHK7jULvMc3xo9)`)
+                                        .setDescription(`Hello, if you want to apply for the management click [here](https://forms.gle/Xehxo8vkjTkdz64i6)\nAnd if you want to apply for member support or as a streamer click click [here](https://forms.gle/fUyqHK7jULvMc3xo9)`)
                                         .setFooter(settings.footer)
                                     channel.send(embed4)
                                 }
