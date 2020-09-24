@@ -11,7 +11,7 @@ module.exports =
     execute(message, args) {
 
         const exampleEmbed = new discord.MessageEmbed()
-            .setColor(settings.color)
+            .setColor(settings.colors.lightblue)
             .setTitle(`Options`)
             .setDescription(`💡 - Support\n⏱️ - Did not recieve my product\n🔑 - Forgot my credentials\n📃 - Apply`)
             .setFooter(settings.footer);
@@ -54,7 +54,7 @@ module.exports =
                                 if (reaction.emoji.name === '💡') {
                                     let embed = new discord.MessageEmbed()
                                         .setTitle(`Support ticket`)
-                                        .setColor(settings.color)
+                                        .setColor(settings.colors.lightblue)
                                         .setDescription(`Hello there **`+message.author.username +`**, tell us about your issue and one of our staff members will respond as quick as possible. And also if you have any questions feel free to ask it in here.`)
                                         .setFooter(settings.footer)
                                     channel.send(embed)
@@ -63,7 +63,7 @@ module.exports =
                                 if (reaction.emoji.name === '⏱️') {
                                     let embed2 = new discord.MessageEmbed()
                                         .setTitle(`Product not received`)
-                                        .setColor(settings.color)
+                                        .setColor(settings.colors.lightblue)
                                         .setDescription(`Hello, could you please send us the PayPal transaction ID and the Order ID so we can activate your order and the product should be created automatically.`)
                                         .setFooter(settings.footer)
 
@@ -73,7 +73,7 @@ module.exports =
                                 if (reaction.emoji.name === '🔑') {
                                     let embed3 = new discord.MessageEmbed()
                                         .setTitle(`Credentials lost`)
-                                        .setColor(settings.color)
+                                        .setColor(settings.colors.lightblue)
                                         .setDescription(`Hello, could you send us your email, first and last name so we can reset your password or/and username.`)
                                         .setFooter(settings.footer)
 
@@ -83,7 +83,7 @@ module.exports =
                                 if (reaction.emoji.name === '📃') {
                                     let embed4 = new discord.MessageEmbed()
                                         .setTitle(`Application`)
-                                        .setColor(settings.color)
+                                        .setColor(settings.colors.lightblue)
                                         .setDescription(`Hello, if you want to apply for the management click [here](https://forms.gle/Xehxo8vkjTkdz64i6)\nAnd if you want to apply for member support or as a streamer click click [here](https://forms.gle/fUyqHK7jULvMc3xo9)`)
                                         .setFooter(settings.footer)
                                     channel.send(embed4)
