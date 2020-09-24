@@ -12,6 +12,8 @@
    },
    "colors":{
       "blue":"#4200ff",
-      "lightblue":"#FFFFF"
+      "lightblue":"#FFFFF",
+      "green": "#28823d",
+      "red":"#cf0a0a"
    }
 }

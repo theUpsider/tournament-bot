@@ -12,7 +12,7 @@ module.exports =
 
         if (!message.member.roles.cache.has(settings.staffrole)) return message.reply(`:x: You do not have permission to execute this command.`)
 
-        //if (args[0] !== message.guild.members.cache.get(args[0])) return message.channel.send(`:x: Incorrect user ID.`)
+        // check if user exists
         if (! message.guild.member(args[0])) return message.channel.send(`:x: Incorrect user ID (use the numbers not the username).`)
 
         else {

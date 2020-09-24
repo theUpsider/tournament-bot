@@ -3,12 +3,16 @@ const Discord = require('discord.js');
 const fetch = require('node-fetch');
 const Keyv = require('keyv');
 const sqlite3 = require('sqlite3').verbose();
-const { prefix, token } = require('./config.json');
+var RiotRequest = require('riot-lol-api');
+const { prefix, token, riotapikey } = require('./config.json');
 const settings = require('./general-settings.json')
 const fs = require('fs');
 
 const globalPrefix = '..';
 const bot = new Discord.Client();
+
+//Riot API 
+var riotRequest = new RiotRequest(riotapikey);
 
 // cooldowns
 const cooldowns = new Discord.Collection();
@@ -28,8 +32,9 @@ let db = new sqlite3.Database(':memory:', (err) => {
 	console.log('Connected to the in-memory SQlite database.');
 });
 //db1
-const dbsupportchannel = new Keyv('sqlite://supportchannel.sqlite'); // const keyv = new Keyv(); // for in-memory storage //
-dbsupportchannel.on('error', err => console.error('Keyv connection error:', err));
+// Key: teamname, Value: Teamleader (Summonername)
+const dbteams = new Keyv('sqlite://teams.sqlite'); // const keyv = new Keyv(); // for in-memory storage //
+dbteams.on('error', err => console.error('Keyv connection error:', err));
 //db2
 // const dbjob = new Keyv('sqlite://job.sqlite');
 // dbjob.on('error', err => console.error('Keyv connection error:', err));
