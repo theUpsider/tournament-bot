@@ -49,7 +49,7 @@ module.exports =
                                 ]
                             })
                             .then(channel => {
-                                channel.setParent(settings.ticketcat)
+                                channel.setParent(settings.channels.ticketcat)
 
                                 if (reaction.emoji.name === '💡') {
                                     let embed = new discord.MessageEmbed()
