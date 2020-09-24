@@ -63,9 +63,9 @@ bot.on('message', async message => {
 		return message.reply('I can\'t execute that command inside DMs!');
 	}
 	// 18 check
-	if (message.channel.type != "dm")
-		if (!message.channel.parent.name.includes('18+'))
-			return;
+	// if (message.channel.type != "dm")
+	// 	if (!message.channel.parent.name.includes('18+'))
+	// 		return;
 
 	//args check
 	if (command.args && !args.length) {
@@ -96,7 +96,10 @@ bot.on('message', async message => {
 		timestamps.set(message.author.id, now);
 		setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
 	}
+
+	// ----------------------------------------------------------------------------------------------------------------------------------------------
 	// Execute command
+	// ----------------------------------------------------------------------------------------------------------------------------------------------
 	try {
 		command.execute(message, args);
 	} catch (error) {
