@@ -31,5 +31,14 @@ module.exports = {
             .setFooter(settings.footer)
             .setDescription(args[2])
         args[0].send(logEmbed);
+    },
+    // message, settings color, title, text
+    async EmbededColor() {
+        const args = arguments;
+        const logEmbed = new discord.MessageEmbed()
+            .setTitle(`**` + args[2] + `**`)
+            .setColor(args[1])
+            .setDescription(args[3])
+        args[0].send(logEmbed);
     }
 }
