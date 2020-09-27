@@ -35,7 +35,7 @@ module.exports =
                                 type: 'text',
                                 permissionOverwrites: [
                                     {
-                                        id: settings.staffrole,
+                                        id: settings.roles.staffrole,
                                         allow: ['VIEW_CHANNEL'],
                                     },
                                     {
@@ -52,7 +52,7 @@ module.exports =
                                 channel.setParent(settings.channels.ticketcat)
                                 channel.updateOverwrite(message.guild.id, { VIEW_CHANNEL: false });
                                 channel.updateOverwrite(message.author.id, { VIEW_CHANNEL: true });
-                                channel.updateOverwrite(settings.staffrole, { VIEW_CHANNEL: true });
+                                channel.updateOverwrite(settings.roles.staffrole, { VIEW_CHANNEL: true });
 
                                 if (reaction.emoji.name === '💡') {
                                     let embed = new discord.MessageEmbed()

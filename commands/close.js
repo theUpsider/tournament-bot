@@ -6,7 +6,7 @@ module.exports = {
     description: 'closes a ticket',
     async execute(message, args) {
 
-        if (!message.member.roles.cache.has(settings.staffrole)) return message.reply(`:x: You do not have permission to execute this command.`)
+        if (!message.member.roles.cache.has(settings.roles.staffrole)) return message.reply(`:x: You do not have permission to execute this command.`)
 
         const categoryID = settings.channels.ordercat || settings.channels.ticketcat;
 

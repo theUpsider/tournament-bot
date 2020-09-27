@@ -24,7 +24,7 @@ module.exports =
         // create team
         if (!captainID || captainID === undefined) {
           
-        } else if ((captainID == message.author.id) || message.member.roles.cache.has(settings.staffrole)) {
+        } else if ((captainID == message.author.id) || message.member.roles.cache.has(settings.roles.staffrole)) {
 
             const category = await message.guild.channels.cache.find(channel => channel.name == args[0]).fetch();
             if (category) {
@@ -40,10 +40,5 @@ module.exports =
                 Messenger.Error(message,'Team Deletion','Team: **'+args[0]+'** \ndeleted by **'+ message.author.username+'**.')
             }
         }
-        // if (!message.member.roles.cache.has(settings.staffrole)) return message.reply(`:x: You do not have permission to execute this command.`)
-
-        // check if user exists
-        //if (! message.guild.member(args[0])) return message.channel.send(`:x: Incorrect user ID (use the numbers not the username).`)
-
     }
 }

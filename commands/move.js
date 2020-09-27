@@ -2,7 +2,7 @@ const discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
 
-    if (!message.member.roles.cache.has(bot.config.staffrole)) return message.reply(`:x: You do not have permission to execute this command.`)
+    if (!message.member.roles.cache.has(bot.config.roles.staffrole)) return message.reply(`:x: You do not have permission to execute this command.`)
 
     let questions = ["To which category do you want to move this ticket? *choose between: technical, general, management*"];
         let answers = [];
@@ -21,7 +21,7 @@ module.exports.run = async (bot, message, args) => {
 
         if (answers[0] === `technical`) {
             message.channel.updateOverwrite('752941835944722574', { VIEW_CHANNEL: true });
-            message.channel.updateOverwrite(bot.config.staffrole, {VIEW_CHANNEL: false});
+            message.channel.updateOverwrite(bot.config.roles.staffrole, {VIEW_CHANNEL: false});
             message.channel.updateOverwrite('752942139477852251', {VIEW_CHANNEL: true})
 
             let embed = new discord.MessageEmbed()
@@ -33,7 +33,7 @@ module.exports.run = async (bot, message, args) => {
 
         if (answers[0] === `general`) {
             message.channel.updateOverwrite('752941835944722574', { VIEW_CHANNEL: true });
-            message.channel.updateOverwrite(bot.config.staffrole, {VIEW_CHANNEL: true});
+            message.channel.updateOverwrite(bot.config.roles.staffrole, {VIEW_CHANNEL: true});
             message.channel.updateOverwrite('752942139477852251', {VIEW_CHANNEL: true})
 
             let embed = new discord.MessageEmbed()
@@ -45,7 +45,7 @@ module.exports.run = async (bot, message, args) => {
 
         if (answers[0] === `management`) {
             message.channel.updateOverwrite('752941835944722574', { VIEW_CHANNEL: false });
-            message.channel.updateOverwrite(bot.config.staffrole, {VIEW_CHANNEL: false});
+            message.channel.updateOverwrite(bot.config.roles.staffrole, {VIEW_CHANNEL: false});
             message.channel.updateOverwrite('752942139477852251', {VIEW_CHANNEL: true})
 
             let embed = new discord.MessageEmbed()

@@ -21,7 +21,7 @@ module.exports = {
 
         if (!captainID || captainID === undefined) {
 
-        } else if ((captainID == message.author.id) || message.member.roles.cache.has(settings.staffrole)) {
+        } else if ((captainID == message.author.id) || message.member.roles.cache.has(settings.roles.staffrole)) {
 
             //if wrong hex code return
             if (args[0].startsWith("#") && args[0].length == 7)

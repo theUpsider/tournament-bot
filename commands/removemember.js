@@ -21,7 +21,7 @@ module.exports = {
 
         if (!captainID || captainID === undefined) {
 
-        } else if ((captainID == message.author.id) || message.member.roles.cache.has(settings.staffrole)) {
+        } else if ((captainID == message.author.id) || message.member.roles.cache.has(settings.roles.staffrole)) {
 
             const memberToAdd = await message.guild.members.cache.find(member => member.id == args[0]).fetch();
             if(memberToAdd.id != message.author.id)

@@ -10,7 +10,7 @@ module.exports =
     guildOnly: true,
     async execute(message, args) {
 
-        if (!message.member.roles.cache.has(settings.staffrole)) return message.reply(`:x: You do not have permission to execute this command.`)
+        if (!message.member.roles.cache.has(settings.roles.staffrole)) return message.reply(`:x: You do not have permission to execute this command.`)
 
         // check if user exists
         if (! message.guild.member(args[0])) return message.channel.send(`:x: Incorrect user ID (use the numbers not the username).`)
