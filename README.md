@@ -14,7 +14,8 @@ this project features a Discord bot, with the intend to reduce the administratio
 	"riotapikey": "RIOTKEYGOESHERE"
 }
 ```  
-- To run the bot, a developer account at [Discord](https://discord.com/developers/) needs to be created. The key can be filled in the `config.json` under `token`.  
+- To register the bot, a developer account at [Discord](https://discord.com/developers/) needs to be created. The key can be filled in the `config.json` under `token`.  
+- To finally launch the bot, use `node index.js` in Powershell to launch the bot. Press CTRL + c to end the execution. The console will give useful log.
 ## Bot Settings
 In order for the bot to communicate with channels, you need to edit the `general-settings.json` and paste in the IDs of the channels and roles. Those need to be created before launching the bot.
 ### Roles
