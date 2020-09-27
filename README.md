@@ -24,7 +24,7 @@ verified: after a playeer verified with his ingame account. Use this role as you
 EUW1 / ...: those roles will be assinged after verification as well. Use this to tag or group players.  
 ### Channels
 - logs : where the information for the management and staff gets logged. Like a closed ticket or similar.  
-## Other
+### Other
 The footer can be set int the config. It will be displayed below supportive messages.
 ## Commands
 In general, a command can be used without any arguments to get additional information about it.
@@ -40,3 +40,6 @@ In general, a command can be used without any arguments to get additional inform
 - setteamcolor : used during the setup of a team to change and set its color (role).
 - ticket : opens a ticket, the support and staff can look into. This may range from general inqueries to specific problems the players may have.
 - verify : guides the user trhough a setup using the riot api to determine his ownership of a LoL account and sets his nickname and region accordingly.
+
+## Thanks
+The bot is in a early state. Feedback is appreciated.
