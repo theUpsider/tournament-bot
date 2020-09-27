@@ -24,6 +24,10 @@ verified: after a playeer verified with his ingame account. Use this role as you
 EUW1 / ...: those roles will be assinged after verification as well. Use this to tag or group players.  
 ### Channels
 - logs : where the information for the management and staff gets logged. Like a closed ticket or similar.  
+- greetings : where new players get welcomed
+- information : where useful information for everyone gets posted by the bot
+- ticketcat : the category tickets will be created (category!)
+- logs : where log files are beeing posted to. Useful for staff.
 ### Other
 The footer can be set int the config. It will be displayed below supportive messages.
 ## Commands
