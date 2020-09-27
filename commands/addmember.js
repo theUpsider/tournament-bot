@@ -20,7 +20,7 @@ module.exports = {
         const captainID = await dbteams.get((await message.guild.roles.fetch(role.id)).name); // is weird but works that way
 
         if (!captainID || captainID === undefined) {
-
+            return message.reply('You have no team.')
         } else if ((captainID == message.author.id) || message.member.roles.cache.has(settings.staffrole)) {
 
             const memberToAdd = await message.guild.members.cache.find(member => member.id == args[0]).fetch();

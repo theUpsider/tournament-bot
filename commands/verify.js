@@ -12,13 +12,15 @@ module.exports =
 {
     name: 'verify',
     description: 'get verified to participate',
-    usage: '<euw1> <summonername>',
+    guildOnly: true,
+    args: false,    
+    aliases: ['verifyme','config'],
     async execute(message, args) {
 
         if (args.length < 1) {
             const exampleEmbed = new discord.MessageEmbed()
                 .setColor(settings.colors.lightblue)
-                .setTitle(`Options`)
+                .setTitle(`Verification`)
                 .setDescription(message.author.username + `, to verify, please set your LoL profile icon to the default rose icon, then react with thumbs up. React with thumbs down to cancel.`)
 
             message.channel.send(exampleEmbed)
@@ -34,7 +36,7 @@ module.exports =
 
                             const reaction = collected.first()
                             if (reaction.emoji.name === '👍') {
-                                Messenger.Embeded(message.channel, 'Provide your account', 'Type in your region and account you want to verify like: **<euw> <Summonername>** without the brackets.')
+                                Messenger.Embeded(message.channel, 'Provide your account', 'Now type your region and account you want to verify like: **<euw> <Summonername>** without the brackets.')
 
                                 // Get name and region
                                 const filter = m => {
@@ -44,18 +46,19 @@ module.exports =
                                     .then(collected => {
 
                                         const region = ['euw europe euw', 'na northamerica', 'eun eune euna ']
-                                        let finalRegion = 'euw1';
+                                        const regionsReal= ["EUW1","NA1","EUN1"];
+                                        var finalRegion = regionsReal[0];
                                         for (var i = 0, len = region.length; i < len; i++) {
                                             if (region[i].includes(collected.first().content.split(' ')[0].toLowerCase())) {
                                                 switch (i) {
                                                     case 0:
-                                                        finalRegion = "EUW1";
+                                                        finalRegion = regionsReal[0];
                                                         break;
                                                     case 1:
-                                                        finalRegion = "NA1";
+                                                        finalRegion = regionsReal[1];
                                                         break;
                                                     case 2:
-                                                        finalRegion = "EUN1";
+                                                        finalRegion = regionsReal[2];
                                                         break;
 
                                                     default:
@@ -73,6 +76,7 @@ module.exports =
                                                 if (SummonerDTO.profileIconId == 7) {
 
                                                     message.member.roles.add(settings.roles.verified)
+                                                    message.member.roles.add(settings.roles[finalRegion])
                                                     try {
                                                         message.member.setNickname(finalRegion.toUpperCase() + " | " + SummonerDTO.name);
                                                         return message.reply('You got verified. Congratulation!')
