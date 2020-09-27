@@ -1,6 +1,6 @@
 # League of Legends Tournament bot (Discord)
 ## Introduction
-this project features a Discord bot, with the intend to reduce the administration overhead for tournament hosts. The bot takes care of verifying new server members and grouping players into teams. In the future it will take care of match results and matchmaking.
+This project features a Discord bot, with the intend to reduce the administration overhead for tournament hosts. The bot takes care of verifying new server members and grouping players into teams. In the future it will take care of match results and matchmaking.
 
 ## Setting up the bot
 - To run the code itself, first you need [Node.js](https://nodejs.org/en/). Install this JavaScript runtime. 
@@ -24,6 +24,8 @@ verified: after a playeer verified with his ingame account. Use this role as you
 EUW1 / ...: those roles will be assinged after verification as well. Use this to tag or group players.  
 ### Channels
 - logs : where the information for the management and staff gets logged. Like a closed ticket or similar.  
+## Other
+The footer can be set int the config. It will be displayed below supportive messages.
 ## Commands
 In general, a command can be used without any arguments to get additional information about it.
 - add : adds a user to a ticket by his discord ID. Only for staff role.
