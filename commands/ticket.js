@@ -8,7 +8,7 @@ module.exports =
     description: 'Creates a ticket',
     cooldown: 1,
     aliases: ['support'],
-    execute(message, args) {
+    async execute(message, args) {
 
         const exampleEmbed = new discord.MessageEmbed()
             .setColor(settings.colors.lightblue)

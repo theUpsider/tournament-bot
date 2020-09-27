@@ -15,5 +15,8 @@
       "lightblue":"#FFFFF",
       "green": "#28823d",
       "red":"#cf0a0a"
+   },
+   "roles":{
+      "verified": "759559434119806996"
    }
 }

@@ -113,17 +113,20 @@ bot.on('message', async message => {
 	}
 });
 
-	// ----------------------------------------------------------------------------------------------------------------------------------------------
-	// User Join
-	// ----------------------------------------------------------------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------------------------------------------------------------------
+// User Join
+// ----------------------------------------------------------------------------------------------------------------------------------------------
 bot.on('guildMemberAdd', member => {
 	const embeded = new Discord.MessageEmbed()
-	.setColor(settings.colors.blue)
-	.setTitle(`A new user has joined`)
-	.setDescription(`Welcome **`+member.user.username+`** to the tournament server! Before doing anything else read <#${settings.channels.information}> and <#${settings.channels.rules}>. Any further questions should be directed towards our staff. Enjoy your stay!`)
-	.setFooter(settings.footer);
-
-    member.guild.channels.resolve(settings.channels.greetings).send(embeded);
+		.setColor(settings.colors.blue)
+		.setTitle(`A new user has joined`)
+		.setDescription(`Welcome **` + member.user.username + `** to the tournament server! Before doing anything else read <#${settings.channels.information}> and <#${settings.channels.rules}>. Any further questions should be directed towards our staff. Enjoy your stay!`)
+		.setFooter(settings.footer);
+	try {
+		member.guild.channels.resolve(settings.channels.greetings).send(embeded);
+	} catch (error) {
+		console.log(error)
+	}
 });
 
 
